@@ -1,0 +1,27 @@
+/*Grid1 */
+.gridOne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(225, 225, 225);
+    margin-bottom: 40px;
+}
+
+/*Grid2 */
+
+.gridTwo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    margin-bottom: 30px;
+}
+
+.red-box {
+    background-color: red;
+}
+
+.blue-box{
+    background-color: blue;
+}
+
+.yellow-box {
+    background-color: yellow;
+}

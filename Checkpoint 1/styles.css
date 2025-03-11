@@ -25,3 +25,14 @@
 .yellow-box {
     background-color: yellow;
 }
+
+/*Grid3 */
+.gridThree{
+    display: grid;
+    background-color: gray;
+}
+.photograph img {
+    width: 500px;
+    height: 225px;
+    object-fit: cover;
+}

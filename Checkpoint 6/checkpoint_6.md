@@ -220,30 +220,64 @@ Puedes hacer diferentes tipos de **solicitudes HTTP** a una API.
 # ¿Qué es el polimorfismo?
 
 # ¿Qué es un método dunder?
-Un método dunder se refiere a Double UNDERSCORE es un método que empieza y termina con dos guiones bajos.
+## Introducción
+Un método **dunder** se refiere a la abreviatura del ingles **Double Underscore** (Doble guión bajo) es un método que empieza y termina con dos guiones bajos. Se usa para describir estos métodos que **permiten definir comportamientos personalizados para objetos y clases** en Python.
+
+> Por ejemplo: `__init__`, `__str__`, `__len__`, `__add__`
+
+Python es un lenguaje orientado a objetos con el que puedes **sobrescribir comportamientos internos del lenguaje** de manera flexible.  
+
+- Personalizar cómo se comporta un objeto con los operadores (`+`, `==`, `>`, etc.)
+- Controlar cómo se representa un objeto (`print`)
+- Administrar cómo se crean e inicializan los objetos (`__init__`, `__new__`)
+- Interactuar con funciones y construcciones de Python (`len()`, `iter()`, `next()`)
+
+## Métodos dunder más comunes
+| Método         | Propósito                                                | Ejemplo            |
+| -------------- | -------------------------------------------------------- | ------------------ |
+| `__init__`     | Constructor: inicializa un objeto                        | `obj = Clase()`    |
+| `__str__`      | Representación legible para humanos                      | `print(obj)`       |
+| `__repr__`     | Representación para desarrolladores                      | `repr(obj)`        |
+| `__len__`      | Longitud de un objeto personalizado                      | `len(obj)`   
+
+
+
 
 # ¿Qué es un decorador de python?
-Un **decorador** es una forma de modificar el comportamiento de una función sin cambiar su código original. Es una función que toma otra función como argumento, le añade alguna funcionalidad extra y luego la devuelve. 
-> Se usa el símbolo **@** antes del nombre de la función
+Un **decorador** es una forma de modificar el comportamiento de una función sin cambiar su código original. Es una función que toma otra función como argumento, le añade alguna funcionalidad extra y luego la devuelve. Los decoradores pueden ser utiles si tienes muchas funciones en tu codigo y quieres que realicen alguna accion extra como imprimir un mensaje. En lugar de ceditar cada funcion por individual manual, utilizando los decoradores, aplicas el comportmainto de forma limpia, ordemada y reutilizable.
+> Se usa el símbolo **@** antes del nombre de la función para hacer el codigo más limpio.
 
-
-### **Ejemplo** 
+ ````python
+@decorator
+def saludar():
+    print("¡Hola!")
 ````
-def decorador(funcion):
-    def nueva_funcion():
-        print("Antes de ejecutar la función")
-        funcion()
-        print("Después de ejecutar la función")
+
+ ````python
+def decorador(funcion_original):
+   def nueva_funcion():
+        print("Antes de ejecutar la función original")
+        funcion_original()
+        print("Después de ejecutar la función original")
     return nueva_funcion
+````
 
-@decorador
-def saludo():
-    print("Hola Mundo!")
+## Conceptos para comprender los decoradores
+En Python, las **funciones** pueden:
+- Ser asignadas a variables
+- Ser pasadas como argumento a otras funciones
+- Ser devueltas por otras funciones
+### Ejemplo:
 
-saludo()
-# Resultado:
-# Antes de ejecutar la función
-# Hola Mundo!
-# Después de ejecutar la función
-`````
+```python
+def saludar():
+    return "¡Hola!"
+
+mi_funcion = saludar  
+print(mi_funcion()) 
+```
+```scss
+Función original  --->  Decorador  --->  Función decorada
+     f()                  @decorador        decorador(f)
+```
 

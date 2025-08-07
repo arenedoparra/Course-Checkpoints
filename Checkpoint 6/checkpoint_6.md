@@ -1,21 +1,106 @@
 # ¿Para qué usamos Clases en Python?
+## Introducción
 
-Las **clases** en Python son la base de la **Programación Orientada a Objetos (POO)**. Nos permiten **organizar el código**, agrupar datos (atributos) y comportamientos (métodos) en una sola estructura.
+Las **clases** en Python son la base de la **Programación Orientada a Objetos (OOP, Object oriented programming)**. Nos permiten **organizar el código**, agrupar datos (atributos) y comportamientos (métodos) en una sola estructura con el objetivo de que sea mas claro y reutilizable.
 
-### ¿Por qué son útiles las clases en Pyhon?
-- Para la reutilización de código.
-- Para crear múltiples objetos a partir de una sola definición.
-- Para organizar proyectos grandes.
+Una clase define:
+- Qué **atributos** (datos) tendrá el objeto.
+- Qué **métodos** (funciones) podrá ejecutar.
+### Que es un objeto?
+Un **objeto** es una **instancia concreta** de una clase. Cuando usas una clase para crear algo, eso se convierte en un objeto.
 
-### **Ejemplo**
+#### Ejemplo
+| Clase       | Objeto      |
+|------------------------|----------------------------------|
+| `Edad`                | `mi_edad = Edad("27")`       |
+| `Usuario`              | `usuario1 = Usuario("Ane", 25)`  |
 
+
+## Uso de las clases
+-  **Organizar el código** de forma lógica
+- **Reutilizar código**, creando múltiples **instancias** sin reescribir todo desde cero.
+- **Agrupar datos y funciones relacionadas** dentro de una misma estructura creando múltiples objetos a partir de una sola definición.
+- **Facilitar el mantenimiento** y la organización del código, especialmente para organizar proyectos grandes.
+
+## Ejemplo
+
+```python
+# Definir una clase
+class persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre  
+        self.edad = edad     
+
+    def saludar(self):
+        print(f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años.")
+
+# Crear un objeto (instancia) 
+persona1 = Persona("Ane", 27)
+
+# Llamar
+persona1.saludar()
+#Salida
+Hola, mi nombre es Ane y tengo 27 años.
 ```
-¡df
-```
+## Atributos vs Métodos
+| Concepto      | Descripción                               | Ejemplo                    |
+| ------------- | ----------------------------------------- | -------------------------- |
+| **Atributos** | Son variables que pertenecen a un objeto | `self.nombre`, `self.edad` |
+| **Métodos**   | Son funciones que pertenecen a una clase | `saludar()`, `__init__()`  |
 
+## Esquema
+```
+Clase Persona
+├── Atributos
+│   ├── nombre
+│   └── edad
+├── Métodos
+│   ├── __init__()
+│   └── saludar()
+```
 
 
 # ¿Qué método se ejecuta automáticamente cuando se crea una instancia de una clase?
+## Introducción
+Cuando creamos una **instancia** (un objeto) de una clase, existe un método especial que se ejecuta automáticamente **sin tener que llamarlo**.
+```python
+__init__()
+```
+Es conocido como un método constructor, y su propósito es inicializar los atributos del nuevo objeto que se está creando.
+
+## Atributos de Clase vs Atributos de Instancia
+
+| Característica                    | Atributos de Clase                                  | Atributos de Instancia                              |
+|----------------------------------|-----------------------------------------------------|-----------------------------------------------------|
+| **Definición**                   | Atributos compartidos por **todas las instancias**  | Atributos **únicos por cada instancia**             |
+| **Dónde se definen**             | Dentro de la clase, pero **fuera de cualquier método** | Dentro del método `__init__()` u otros métodos usando `self` |
+| **Acceso**                       | A través de `Clase.atributo` o `objeto.atributo`    | Solo a través de `self.atributo`                   |
+| **Memoria**                      | Se almacena **una vez** para toda la clase          | Cada instancia tiene su **propia copia**            |
+| **Uso común**                    | Para constantes, contadores globales, configuración general | Para almacenar el **estado específico** del objeto     |
+| **Ejemplo de código**            | `class C: val = 10`                                 | `self.name = "Ane"`                                 |
+
+## Ejemplo
+```python
+# Atributo de instancia
+class Website:
+    def __init__(self, title):
+        self.title = title
+ws = Website('My Website Title')
+print(ws.__dict__)
+
+ws_two = Website('My Second Title')
+print(ws_two.__dict__) 
+
+# Atributo de clase
+class DifferentWebsite:
+title = '
+My Class Title'
+dw = DifferentWebsite()
+print(dw.title)
+dw_two = DifferentWebsite()
+print(dw_two.title)
+```
+
 
 # ¿Cuáles son los tres verbos de API?
 **Los verbos HTTP** (también conocidos como **métodos HTTP**) son acciones que nos dicen qué tipo de operación es la que queremos hacer sobre un dato o una colección de datos.
@@ -218,6 +303,34 @@ Puedes hacer diferentes tipos de **solicitudes HTTP** a una API.
 
 
 # ¿Qué es el polimorfismo?
+## Introducción
+
+El **polimorfismo** es un concepto de la **Programación Orientada a Objetos (OOP)**. Proviene del griego *"poli"* (muchos) y *"morfos"* (formas), lo que significa literalmente "*muchas formas*".
+
+Se refiere a la capacidad que tienen diferentes clases de **usar un mismo método con comportamientos diferentes**. Una misma operacion puede tener diferentes comportamientos dependiendo del objeto.
+
+## Utilidad
+- Escribir código más **flexible**, **reutilizable** y **escalable**.
+- Tratar objetos de distintas clases de forma uniforme.
+- Simplificar estructuras condicionales y código repetitivo.
+
+## Tipos
+Existen diferentes tipos de polimorfismo. Los más comunes en Python son:
+
+| Tipo                    | Descripción |
+|-------------------------|-------------|
+| **Polimorfismo de Sobrescritura (Overriding)** | Una subclase redefine un método heredado de su clase padre. |
+| **Polimorfismo de Sobrecarga (Overloading)** | Un método tiene diferentes comportamientos dependiendo del número o tipo de argumentos. *(No es nativo en Python)* |
+| **Polimorfismo por duck typing** | Basado en el comportamiento del objeto y no en su tipo (muy común en Python). |
+
+## Polimorfismo + Herencia + Abstracción
+El polimorfismo suele utilizarse junto con:
+
+- Herencia: permite que una clase hija herede métodos de la clase padre.
+- Abstracción: define una interfaz o comportamiento sin especificar cómo se implementa.
+- Encapsulamiento: protege los datos internos del objeto.
+
+> En Python, el polimorfismo te permite usar el mismo método en diferentes clases, y que cada una lo ejecute de forma distinta.
 
 # ¿Qué es un método dunder?
 ## Introducción

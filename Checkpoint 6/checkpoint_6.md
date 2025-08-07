@@ -78,7 +78,7 @@ Puedes hacer diferentes tipos de **solicitudes HTTP** a una API.
 | `PUT`      | **Actualizar** datos     | Modificar información de un usuario          |
 | `DELETE`   | **Eliminar** datos                 | Eliminar un usuario de la base de datos      |
 
-### Estructura básica de una solicitud en Postman
+### Estructura básica de una solicitud en Posman
 1. Selecciona el método que vayas a usar: HTTP: GET, POST...
 2. Introduce la URL del endpoint.
 3. Haz clic en "Send".

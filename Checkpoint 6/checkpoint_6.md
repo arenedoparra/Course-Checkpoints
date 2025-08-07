@@ -23,13 +23,63 @@ los
 # ¿Es MongoDB una base de datos SQL o NoSQL?
 
 # ¿Qué es una API?
+## Introducción
+La palabra **API** significa **Application Programming Interface** (Interfaz de Programación de Aplicaciones). Es un **puente de comunicación** entre dos programas o sistemas.
+
+Una **API** es un servicio, algo así como un sitio web o servidor con el que puedes comunicarte pero en vez de devolverte una página web te devuelve datos. Resumiendo, es un conjunto de reglas y datos que permiten que dos sitemas se comuniquen entre sí.
+
+Las APIs son fundamentales en el desarrollo moderno de software porque permiten crear aplicaciones más rápidas y escalables.
+
+Algunas APIs requieren autenticación, esto evita que cualquier persona haga peticiones sin control y obetenga datos reservados o de contenido sensible.
+
+## Usos de las APIs
+-  **Conectar las aplicaciones** con otras aplicaciones o servicios.
+- **Obtener datos** desde un servidor (usuarios, productos, videos, imagenes...).
+- **Enviar datos** al servidor (formularios...).
+- **Automatizar tareas** entre diferentes plataformas (redes sociales, plataformas de pagos...).
+- **Crear sistemas complejos** sin tener que desarrollar todo desde cero, simplemente concectandolos.
+
+## HTTP en una API 
+Cuando usas una API, Puedes hacer diferentes tipos de **solicitudes HTTP** con los siguientes verbos:
+
+
+| HTTP | Función               | Ejemplo (Con un usuario)                                     |
+|------------|--------------------------------|----------------------------------------------|
+| `GET`      | **Obtener** datos                  | Obtener la lista de usuarios                 |
+| `POST`     | **Enviar** datos nuevos            | Crear un nuevo usuario                       |
+| `PUT`      | **Actualizar** datos     | Modificar información de un usuario          |
+| `DELETE`   | **Eliminar** datos                 | Eliminar un usuario de la base de datos      |
+
+## API y datos JSON
+Muchas APIs devuelven los datos en formato JSON (JavaScript Object Notation).
+### Ejemplo
+```
+{
+  "nombre": "Ane",
+
+  "email": "ane@example.com",
+
+  "activo": true
+}
+```
+## Esquema
+```
++-------------------+          +------------------------+
+|    Aplicación     | <------> |       API              |
+|                   |          |                        |
++-------------------+          +------------------------+
+                                        |
+                                        v
+                               +-----------------------+
+                               |    Base de datos      |
+                               |                       |
+                               +-----------------------+
+```
+
 
 # ¿Qué es Postman?
-## Concepto general
-
-[**Postman**](https://www.postman.com/) es una **herramienta de desarrollo** muy útil que se utiliza para proibar, trabahr
-
-que permite **probar, crear, documentar y compartir APIs** de una forma rápida y visual, **sin tener que escribir código o crear una interfaz de usuario** para construir una interfaz o una aplicación desde cero.
+## Introducción
+[**Postman**](https://www.postman.com/) es una **herramienta de desarrollo** muy útil que se utiliza para  **probar, crear, documentar y compartir APIs** de una forma rápida y visual, **sin tener que escribir código o crear una interfaz de usuario** para construir una interfaz o una aplicación desde cero.
 Postman te permite enviar solicitudes a un servidor, **peticiones HTTP (GET, POST, PUT, DELETE)** y ver la respuesta sin tener que programar una interfaz. 
 
 

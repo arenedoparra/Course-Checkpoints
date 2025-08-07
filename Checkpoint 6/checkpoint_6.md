@@ -51,14 +51,54 @@ APP / WEB
     API / SERVIDOR
 ```
 
-
-
-
-
-
-
-
 # ¿Es MongoDB una base de datos SQL o NoSQL?
+## Introducción
+**MongoDB** es una base de datos NoSQL. Es una base de datos de este tipo porque no utiliza el lenguaje SQL y tampoco guarda los datos en tablas como lo harían bases de datos relacionales, como MySQL. 
+
+En vez de tablas, columnas y filas, utiliza colecciones y documentos para almacenar los datos en un formato parecido al **JSON**.
+Cada documento puede tener una estructura diferente, esto lo hace flexible, especialmente en proyectos donde los datos no siempre tiene una estructura fija.
+
+
+## Bases de datos
+Una base de datos es una forma para **guardar, organizar y gestionar cualquier tipo de datos**. Esta información pueden ser usuarios, productos, mensajes, notas de alumnos...
+
+Existen **dos tipos** de bases de datos, **SQL** y **NoSQL**
+
+| Tipo         | Ejemplos                  | Estructura        | Lenguaje   |
+|--------------|---------------------------|-------------------|------------|
+| SQL (Relacional) | MySQL | Tablas y filas    | SQL        |
+| NoSQL (No Relacional) | MongoDB | Documentos, pares clave-valor | Propio (no SQL) |
+
+## SQL Vs NoSQL
+| **SQL** (Bases de datos relacionales) | **NoSQL** (Bases de datos no relacionales) |
+|--------------------------------------|--------------------------------------------|
+| Usa lenguaje SQL para consultar datos | No usa SQL, puede usar otros métodos como consultas con JSON |
+| Tiene una estructura de tablas, filas y columnas | Estructura flexible, documentos, colecciones, pares clave-valor |
+| Para datos estructurados y relaciones complejas | Para datos semi-estructurados o no estructurados. |
+| Requiere definir un esquema antes de insertar datos | No necesita un esquema fijo (puede cambiar entre documentos) |
+| Ejemplo: MySQL | Ejemplo: MongoDB |
+
+## Ventajas de MongoDB
+- Si estas desarrollando una app donde la estructura de los datos puede cambiar con el tiempo.
+- Necesitas almacenar grandes volúmenes de datos rapido.
+- Trabajas con datos que se parecen a JSON.
+
+## Ejemplo
+```
+
+      SQL                                   NoSQL 
++-------------------------+    +--------------------------------+
+| Tabla: usuarios         |    | Colección: usuarios            |
+|-------------------------|    |--------------------------------|
+| id | nombre | edad      |    | { nombre: "Ander", edad: 21 }  |
+|-------------------------|    | { nombre: "Ane", edad: 27 }    |
+| 1  | Ander | 21         |    +--------------------------------+
+| 2  | Ane   | 27         |    
++-------------------------+    
+```
+
+
+
 
 # ¿Qué es una API?
 ## Introducción

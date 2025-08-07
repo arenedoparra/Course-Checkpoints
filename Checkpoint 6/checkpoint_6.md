@@ -18,7 +18,45 @@ Las **clases** en Python son la base de la **Programación Orientada a Objetos (
 # ¿Qué método se ejecuta automáticamente cuando se crea una instancia de una clase?
 
 # ¿Cuáles son los tres verbos de API?
-los
+**Los verbos HTTP** (también conocidos como **métodos HTTP**) son acciones que nos dicen qué tipo de operación es la que queremos hacer sobre un dato o una colección de datos.
+
+Los verbos de API están relacionados con las operaciones **CRUD** (Create, Read, Update, Delete)
+
+Los **tres verbos más comunes** cuando se trabja con APIs son:
+- GET
+- POST
+- DELETE
+> También existen otros verbos como PUT y PATCH, que se usan para actualizar información.
+
+## GET
+**GET** se utiliza para **obtener datos** de un servidor. Se usa cuando quieres **leer** o **consultar** información de una base de datos a través de una API. Esta petición no modifica nada, solo nos permite leer los datos.
+
+## POST
+**POST** se utiliza para enviar datos al servidor y que este cree algo nuevo, por ejemplo un nuevo usuario. Se utiliza cuando quieres crear un nuevo recurso, en general por ejemplo se utiliza cuanod envias datos al rellenar un formulario.
+
+## DELETE
+**DELETE** sirve para borrar un recurso en el servidor. Por ejemplo si tienes que borrar un usuuario o un producto de una aplicación de Eccomerce.
+
+### Esquema
+```
+APP / WEB      
+       |
+       |-----> [GET] ------> Obtener datos (Read)
+       |
+       |-----> [POST] -----> Enviar nuevos datos (Create)
+       |
+       |-----> [DELETE] ---> Eliminar datos (Delete)
+       |
+       V
+    API / SERVIDOR
+```
+
+
+
+
+
+
+
 
 # ¿Es MongoDB una base de datos SQL o NoSQL?
 

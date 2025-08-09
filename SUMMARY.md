@@ -8,6 +8,8 @@
   * [Introducción a JavaScript](checkpoint-7/introduccion-a-javascript/README.md)
     * [📖 Historia: Origen de JavaScript](checkpoint-7/introduccion-a-javascript/historia-origen-de-javascript.md)
     * [📌 Razones para aprender JavaScript](checkpoint-7/introduccion-a-javascript/razones-para-aprender-javascript.md)
+    * [💯 Características en profundidad](checkpoint-7/introduccion-a-javascript/caracteristicas-en-profundidad.md)
+    * [📊 Tabla comparativa con otros lenguee](checkpoint-7/introduccion-a-javascript/tabla-comparativa-con-otros-lenguee.md)
   * [Tipos de Datos](checkpoint-7/tipos-de-datos.md)
   * [¿Cuáles son las tres funciones de String en JS?](checkpoint-7/cuales-son-las-tres-funciones-de-string-en-js.md)
   * [Condicionale en JS](checkpoint-7/condicionale-en-js.md)

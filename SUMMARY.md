@@ -4,7 +4,7 @@
   * [checkpoint5\_documentacion](<Checkpoint 5/checkpoint5_documentacion.md>)
 * [Checkpoint 6](checkpoint-6/README.md)
   * [checkpoint\_6](<Checkpoint 6/checkpoint_6.md>)
-* [checkpoint-7](checkpoint-7/README.md)
+* [Checkpoint 7](checkpoint-7/README.md)
   * [Introducción a JavaScript](checkpoint-7/gitbook/README.md)
     * [Table of contents](checkpoint-7/gitbook/summary.md)
   * [Condicionale en JS](checkpoint-7/condicionale-en-js.md)

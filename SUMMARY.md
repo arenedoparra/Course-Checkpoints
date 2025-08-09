@@ -16,7 +16,7 @@
     * [Null](checkpoint-7/tipos-de-datos/null.md)
     * [Undefined](checkpoint-7/tipos-de-datos/undefined.md)
     * [Number](checkpoint-7/tipos-de-datos/number.md)
-    * [String](checkpoint-7/tipos-de-datos/string.md)
+    * [⛓️ String (Cadenas de texto)](checkpoint-7/tipos-de-datos/string-cadenas-de-texto.md)
     * [Symbol](checkpoint-7/tipos-de-datos/symbol.md)
   * [¿Cuáles son las tres funciones de String en JS?](checkpoint-7/cuales-son-las-tres-funciones-de-string-en-js.md)
   * [Condicionale en JS](checkpoint-7/condicionale-en-js.md)

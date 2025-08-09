@@ -32,37 +32,13 @@ Si el programa se sigue desarrollando y esos comentarios no se actualizan, pierd
 
 ### 📁 Tipos de Datos en JavaScript
 
-| Tipo de dato  | Descripción                         | Ejemplo               | Uso                      |
-| ------------- | ----------------------------------- | --------------------- | ------------------------ |
-| **Boolean**   | Valores lógicos                     | `true`, `false`       | Decisiones o condiciones |
-| **Null**      | Representa ausencia de un valor     | `let data = null;`    | Resetear valores         |
-| **Undefined** | No tiene ningun valor asignado      | `let x; // undefined` | Variables sin iniciar    |
-| **Number**    | Números                             | `42`, `3.14`          | Cálculos matemáticos     |
-| **String**    | Texto                               | `"Hola"`, `'Adios'`   | Frases, nombres...       |
-| **Symbol**    | Identificadores únicos e inmutables | `Symbol("id")`        | Keys únicas en objetos   |
+| Tipo de dato                             | Descripción                         | Ejemplo               | Uso                     |
+| ---------------------------------------- | ----------------------------------- | --------------------- | ----------------------- |
+| [**Boolean**](boolean.md)                | Valores lógicos                     | `true`, `false`       | Decisiones              |
+| [**Null**](null.md)                      | Representa ausencia de un valor     | `let data = null;`    | Resetear valores        |
+| [**Undefined**](undefined.md)            | No tiene ningun valor asignado      | `let x; // undefined` | Variables sin iniciar   |
+| [**Number**](number.md)                  | Números                             | `42`, `3.14`          | Operaciones matemáticas |
+| [**String**](string-cadenas-de-texto.md) | Texto                               | `"Hola"`, `'Adios'`   | Frases, nombres...      |
+| [**Symbol**](symbol.md)                  | Identificadores únicos e inmutables | `Symbol("id")`        | Keys únicas en objetos  |
 
-{% content-ref url="boolean.md" %}
-[boolean.md](boolean.md)
-{% endcontent-ref %}
-
-{% content-ref url="null.md" %}
-[null.md](null.md)
-{% endcontent-ref %}
-
-{% content-ref url="undefined.md" %}
-[undefined.md](undefined.md)
-{% endcontent-ref %}
-
-{% content-ref url="number.md" %}
-[number.md](number.md)
-{% endcontent-ref %}
-
-{% content-ref url="string.md" %}
-[string.md](string.md)
-{% endcontent-ref %}
-
-{% content-ref url="symbol.md" %}
-[symbol.md](symbol.md)
-{% endcontent-ref %}
-
-### Cómo ver qué tipo de Dato estamos usando
+### 🏷️ Cómo ver qué tipo de Dato estamos usando

@@ -12,7 +12,7 @@ JavaScript **soporta diferentes estilos de programación**:
 * **Programación orientada a objetos (OOP, Object Oriented Programming)** → Usas clases y objetos.
 * **Programación funcional** → Usas funciones puras y evitas modificar el estado global.
 
-{% hint style="info" %}
+{% hint style="success" %}
 💡 Esto lo hace **flexible** y **adaptable** a distintos tipos de proyectos y equipos.
 {% endhint %}
 

@@ -11,7 +11,7 @@
     * [💯 Características en profundidad](checkpoint-7/introduccion-a-javascript/caracteristicas-en-profundidad.md)
     * [📊 Tabla comparativa con otros lenguajes de programación](checkpoint-7/introduccion-a-javascript/tabla-comparativa-con-otros-lenguajes-de-programacion.md)
     * [⏏️ Cómo ejecutar JavaScript](checkpoint-7/introduccion-a-javascript/como-ejecutar-javascript.md)
-  * [💻 Tipos de Datos](checkpoint-7/tipos-de-datos/README.md)
+  * [💻 Tipos de Datos en JavaScript](checkpoint-7/tipos-de-datos/README.md)
     * [Boolean](checkpoint-7/tipos-de-datos/boolean.md)
     * [Null](checkpoint-7/tipos-de-datos/null.md)
     * [Undefined](checkpoint-7/tipos-de-datos/undefined.md)

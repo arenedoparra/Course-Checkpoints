@@ -5,14 +5,20 @@ cover: >-
 coverY: 0
 ---
 
-# 💻 Tipos de Datos
+# 💻 Tipos de Datos en JavaScript
 
-Un tipo de datos en JavaScript es:
+### 🔎 Qué es un tipo de Dato
 
-* Cómo JavaScript **categoriza** todos nuestros puntos de datos.
-* Por ejemplo, si tenemos una variable, es cómo JS **ve** esa variable. Si por ejemplo tienes una frase, esa frase puede tener diversos códigos en ella.
+Todo lo que escribimos en un lenguaje de programación es para **crear, almacenar, modificar o manipular datos**. Un tipo de dato, define que tipo de información es la que vamos a utilizar en nuestro código: si es un número, un texto, un valor falso o verdadero etc.
 
-### Comentarios&#x20;
+Un tipo de dato es **la clasificación de la información** que le dice a JavaScript **qué puede hacer con ese valor**. Cómo JavaScript **categoriza** todos nuestros puntos de datos.
+
+* Si tenemos una variable, es cómo JS **ve** esa variable. Si por ejemplo tienes una frase, esa frase puede tener diversos códigos en ella.
+* Si el dato que tenemos es un **número**, podremos hacer funciones matemáticas como sumarlo, restarlo, multiplicarlo...
+
+***
+
+### 💬 Comentarios&#x20;
 
 No es un típo de datos, pero en JavaScript también existen los **comentarios**, estos nos permiten **poder añadir texto en el código sin ejecutarlo**. Normalmente en los comentarios debe haber una **intención clara**, no hay que rellenarlo todo de comentarios. Son exactamente lo que su nombre indica, comentarios sobre el codigo para facilitar su comprensión por ejemplo si trabajamos **en quipo**.
 
@@ -24,7 +30,16 @@ Las clases, los módulos las funciones deben de ser autodescriptivas para no rel
 Si el programa se sigue desarrollando y esos comentarios no se actualizan, pierden su funcionalidad.
 {% endhint %}
 
-### Tipos de Datos en JavaScript
+### 📁 Tipos de Datos en JavaScript
+
+| Tipo de dato  | Descripción                         | Ejemplo               | Uso                      |
+| ------------- | ----------------------------------- | --------------------- | ------------------------ |
+| **Boolean**   | Valores lógicos                     | `true`, `false`       | Decisiones o condiciones |
+| **Null**      | Representa ausencia de un valor     | `let data = null;`    | Resetear valores         |
+| **Undefined** | No tiene ningun valor asignado      | `let x; // undefined` | Variables sin iniciar    |
+| **Number**    | Números                             | `42`, `3.14`          | Cálculos matemáticos     |
+| **String**    | Texto                               | `"Hola"`, `'Adios'`   | Frases, nombres...       |
+| **Symbol**    | Identificadores únicos e inmutables | `Symbol("id")`        | Keys únicas en objetos   |
 
 {% content-ref url="boolean.md" %}
 [boolean.md](boolean.md)

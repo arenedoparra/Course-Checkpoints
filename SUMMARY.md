@@ -6,6 +6,7 @@
   * [checkpoint\_6](<Checkpoint 6/checkpoint_6.md>)
 * [Checkpoint 7](checkpoint-7/README.md)
   * [Introducción a JavaScript](checkpoint-7/introduccion-a-javascript/README.md)
+    * [📖 Historia: Origen de JavaScript](checkpoint-7/introduccion-a-javascript/historia-origen-de-javascript.md)
     * [📌 Razones para aprender JavaScript](checkpoint-7/introduccion-a-javascript/razones-para-aprender-javascript.md)
   * [Tipos de Datos](checkpoint-7/tipos-de-datos.md)
   * [¿Cuáles son las tres funciones de String en JS?](checkpoint-7/cuales-son-las-tres-funciones-de-string-en-js.md)

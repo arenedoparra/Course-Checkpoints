@@ -12,6 +12,12 @@ JavaScript es uno de los lenguajes más populares y utilizados en el desarrollo 
 
 No solo es **diferente** a otros lenguajes por su **sintaxis** sino tambien por su **historia**, **versatilidad**, su **entorno de funcionamiento** y su **lenguaje de funcionamiento en web.**
 
-⚠️ **Importante**: aunque el nombre es parecido, **JavaScript y Java NO son el mismo lenguaje**.&#x20;
+{% hint style="info" %}
+&#x20;JavaScript es el idioma de la web y un excelente punto de partida para cualquier persona que quiera comenzar en el desarrollo.
+{% endhint %}
+
+{% hint style="danger" %}
+**Importante**: aunque el nombre es parecido, **JavaScript y Java NO son el mismo lenguaje**.&#x20;
+{% endhint %}
 
 <figure><img src="https://i.pinimg.com/736x/6a/fd/db/6afddbf2e6015d87bdd67e50053afe94.jpg" alt=""><figcaption></figcaption></figure>

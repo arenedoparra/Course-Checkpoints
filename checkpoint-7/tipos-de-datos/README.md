@@ -9,7 +9,7 @@ coverY: 0
 
 ### 🔎 Qué es un tipo de Dato
 
-Todo lo que escribimos en un lenguaje de programación es para **crear, almacenar, modificar o manipular datos**. Un tipo de dato, define que tipo de información es la que vamos a utilizar en nuestro código: si es un número, un texto, un valor falso o verdadero etc.
+Todo lo que escribimos en un lenguaje de programación es para **crear, almacenar, modificar o manipular datos**. Un tipo de dato, define que tipo de información es la que vamos a utilizar en nuestro código: si es un número, un texto, un valor falso o verdadero etc. Al fin y al cabo, los **tipos de datos** no son más que **las diferentes formas en las que los ordenadores entienden y guardan la información**.
 
 Un tipo de dato es **la clasificación de la información** que le dice a JavaScript **qué puede hacer con ese valor**. Cómo JavaScript **categoriza** todos nuestros puntos de datos.
 
@@ -41,4 +41,3 @@ Si el programa se sigue desarrollando y esos comentarios no se actualizan, pierd
 | [**String**](string-cadenas-de-texto.md) | Texto                               | `"Hola"`, `'Adios'`   | Frases, nombres...      |
 | [**Symbol**](symbol.md)                  | Identificadores únicos e inmutables | `Symbol("id")`        | Keys únicas en objetos  |
 
-### 🏷️ Cómo ver qué tipo de Dato estamos usando

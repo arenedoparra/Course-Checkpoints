@@ -22,6 +22,6 @@
   * [Condicionale en JS](checkpoint-7/condicionale-en-js.md)
   * [¿Qué es un operador ternario?](checkpoint-7/que-es-un-operador-ternario.md)
   * [¿Cuál es la diferencia entre una declaración de función y una expresión de función?](checkpoint-7/cual-es-la-diferencia-entre-una-declaracion-de-funcion-y-una-expresion-de-funcion.md)
-  * [¿Qué es la palabra clave "this" en JS?](checkpoint-7/que-es-la-palabra-clave-this-en-js.md)
+  * [👉 'This' Keyword](checkpoint-7/que-es-la-palabra-clave-this-en-js.md)
 * [checkpoint-8](checkpoint-8/README.md)
   * [Page 1](checkpoint-8/page-1.md)

@@ -10,8 +10,6 @@ for (let i = 0; i < miLista.length; i++) {
 // Cree un bucle while que recorra la misma lista y también imprima los nombres. 
 // Nota: Recuerda crear un contador para que el ciclo no sea infinito.
 
-let miLista = ["velma", "exploradora", "jane", "john", "harry"];
-
 let contador = 0;
 while (contador < miLista.length) {
     console.log(miLista[contador]);

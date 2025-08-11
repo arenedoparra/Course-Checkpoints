@@ -26,7 +26,7 @@
 * [Checkpoint 8](checkpoint-8/README.md)
   * [¿Qué tipo de bucles hay en JS?](checkpoint-8/page-1.md)
   * [¿Cuáles son las diferencias entre const, let y var?](checkpoint-8/cuales-son-las-diferencias-entre-const-let-y-var.md)
-  * [¿Qué es una función de flecha?](checkpoint-8/que-es-una-funcion-de-flecha.md)
+  * [🏹 Arrow function (función de flecha)](checkpoint-8/arrow-function-funcion-de-flecha.md)
   * [¿Qué es la deconstrucción de variables?](checkpoint-8/que-es-la-deconstruccion-de-variables.md)
   * [¿Qué hace el operador de extensión en JS?](checkpoint-8/que-hace-el-operador-de-extension-en-js.md)
   * [¿Qué es la programación orientada a objetos?](checkpoint-8/que-es-la-programacion-orientada-a-objetos.md)

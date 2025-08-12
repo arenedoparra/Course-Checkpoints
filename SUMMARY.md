@@ -29,6 +29,6 @@
   * [🏹 Arrow function (función de flecha)](checkpoint-8/arrow-function-funcion-de-flecha.md)
   * [¿Qué es la deconstrucción de variables?](checkpoint-8/que-es-la-deconstruccion-de-variables.md)
   * [¿Qué hace el operador de extensión en JS?](checkpoint-8/que-hace-el-operador-de-extension-en-js.md)
-  * [¿Qué es la programación orientada a objetos?](checkpoint-8/que-es-la-programacion-orientada-a-objetos.md)
+  * [Programación orientada a objetos](checkpoint-8/programacion-orientada-a-objetos.md)
   * [💍 Promesas en JavaScript](checkpoint-8/promesas-en-javascript/README.md)
     * [Promesas con async y await](checkpoint-8/promesas-en-javascript/promesas-con-async-y-await.md)

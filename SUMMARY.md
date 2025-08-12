@@ -30,5 +30,5 @@
   * [¿Qué es la deconstrucción de variables?](checkpoint-8/que-es-la-deconstruccion-de-variables.md)
   * [¿Qué hace el operador de extensión en JS?](checkpoint-8/que-hace-el-operador-de-extension-en-js.md)
   * [¿Qué es la programación orientada a objetos?](checkpoint-8/que-es-la-programacion-orientada-a-objetos.md)
-  * [¿Qué es una promesa en JS?](checkpoint-8/que-es-una-promesa-en-js.md)
-  * [¿Qué hacen async y await por nosotros?](checkpoint-8/que-hacen-async-y-await-por-nosotros.md)
+  * [💍 Promesas en JavaScript](checkpoint-8/promesas-en-javascript/README.md)
+    * [Promesas con async y await](checkpoint-8/promesas-en-javascript/promesas-con-async-y-await.md)

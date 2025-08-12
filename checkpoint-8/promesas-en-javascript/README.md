@@ -31,9 +31,17 @@ Práctica  promesas con ejemplos simples como **esperar unos segundos** o **simu
 * Hacen el código **más limpio y mantenible**. Hacen el código más **legible**.
 * Se integran perfectamente con **`async`/`await`**.
 
+#### Cómo se usa una promesa
+
+Para manejar una promesa usamos:
+
+* `.then()` → Se ejecuta cuando la promesa se **cumple**.
+* `.catch()` → Se ejecuta cuando la promesa es **rechazada**.
+* `.finally()` → Se ejecuta siempre, haya éxito o error.
+
 ***
 
-### Estructura de una promesa
+### Estados de una promesa
 
 Una promesa **puede estar en uno de estos tres estados**:
 
@@ -41,16 +49,10 @@ Una promesa **puede estar en uno de estos tres estados**:
 * **Cumplida (fulfilled):** Todo salió bien y tienes el resultado.
 * **Rechazada (rejected):** Hubo un error y no se pudo completar.
 
-| Estado          | Significado                                                        |
-| --------------- | ------------------------------------------------------------------ |
-| **pending ⏳**   | La promesa está **pendiente**, esperando que termine la operación. |
-| **fulfilled ✅** | La promesa **se cumplió** con éxito y tenemos un resultado.        |
-| **rejected ❌**  | La promesa **falló** y tenemos una razón o error.                  |
-
 ```mermaid
-    A[Promesa creada] --> B[Pending]
-    B -->|Operación exitosa| C[Fulfilled]
-    B -->|Error o fallo| D[Rejected]
+    A[Promesa creada] -->|Pendiente| B{Operación asíncrona}
+    B -->|Éxito| C[Cumplida - Fulfilled]
+    B -->|Error| D[Rechazada - Rejected]
 ```
 
 ***
@@ -107,6 +109,12 @@ miPromesa
 
 **`async`/`await`** es una forma más legible de manejar promesas.
 
+#### Ventajas de async/await:
+
+* Código más parecido al síncrono.
+* Más fácil de leer y depurar.
+* Sigue usando promesas por detrás.
+
 ```javascript
 async function obtenerDatos() {
     try {
@@ -123,7 +131,7 @@ async function obtenerDatos() {
 obtenerDatos();
 ```
 
-### Callbacks vs Promesas vs Async/Await
+### Callbacks vs Promises vs Async/Await
 
 | Técnica         | Ventajas                                          | Desventajas                       |
 | --------------- | ------------------------------------------------- | --------------------------------- |

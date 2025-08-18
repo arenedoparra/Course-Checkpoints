@@ -28,7 +28,7 @@
   * [¿Cuáles son las diferencias entre const, let y var?](checkpoint-8/cuales-son-las-diferencias-entre-const-let-y-var.md)
   * [🏹 Arrow function (función de flecha)](checkpoint-8/arrow-function-funcion-de-flecha.md)
   * [¿Qué es la deconstrucción de variables?](checkpoint-8/que-es-la-deconstruccion-de-variables.md)
-  * [Operadores de extensión en JS](checkpoint-8/operadores-de-extension-en-js.md)
+  * [⏭️ Operadores de extensión en JS](checkpoint-8/operadores-de-extension-en-js.md)
   * [📎 Programación orientada a objetos](checkpoint-8/programacion-orientada-a-objetos.md)
   * [💍 Promesas en JavaScript](checkpoint-8/promesas-en-javascript/README.md)
     * [Promesas con async y await](checkpoint-8/promesas-en-javascript/promesas-con-async-y-await.md)

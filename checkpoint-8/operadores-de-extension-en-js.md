@@ -2,7 +2,7 @@
 description: ¿Qué hace el operador de extensión en JS?
 ---
 
-# Operadores de extensión en JS
+# ⏭️ Operadores de extensión en JS
 
 ### Introducción
 

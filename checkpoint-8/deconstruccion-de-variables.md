@@ -6,62 +6,42 @@ description: ¿Qué es la deconstrucción de variables?
 
 ### Introducción
 
-La **deconstrucción** te permite **sacar valores** de **arrays** y **objetos** **y guardarlos en variables** de una forma **concisa**.
-
-
-
-La **deconstrucción de variables,** en ingl **destructuring**) ,´es una **característica introducida en ECMAScript 6 (ES6)** que permite **extraer valores** de **arrays** o **propiedades de objetos** y asignarlos a variables de una manera **más sencilla, clara y elegante**.
+La **deconstrucción de variables,** en ingles **destructuring** ,es una **característica** que permite **extraer valores** de **arrays** o **propiedades de objetos** y guardarlos en variables de una manera **más sencilla, concisa, clara y elegante**.
 
 En lugar de acceder a cada valor usando su índice o propiedad de manera manual, la deconstrucción nos da una **forma más rápida y legible de hacerlo**.
 
-* **Destructuring** te da **claridad** y **menos código** al **extraer** datos de objetos/arrays.
-* Úsalo especialmente en **parámetros de funciones**, **respuestas de APIs**, **iteraciones** y **código de configuración**.
-* Acompáñalo con **defaults**, **alias** y el operador **rest** para cubrir el 99% de escenarios cotidianos.
+#### Ventajas
+
+* **Código más limpio y legible:** Te da **claridad** y **menos código** al **extraer** datos de objetos/arrays.
+* **Menos repetición** (no necesitas `obj.prop` una y otra vez).
+* **Ideal en funciones:** para extraer parámetros directamente.
+* **Permite valores por defecto:** Acompáñalo con **defaults**, **alias** y el operador **rest** para cubrir el 99% de escenarios cotidianos y para mayor seguridad.
+* **Más moderno y expresivo:** muy usado en frameworks como **React o Angular.**
 
 {% hint style="success" %}
 Si observas que accedes a `obj.algo.algo` muchas veces o a `arr[0]`, `arr[1]` repetidamente, piensa en añadir destructuring.
 {% endhint %}
 
-<table data-header-hidden data-full-width="true"><thead><tr><th width="271.88800048828125">Titulo</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>Antes (sin destructuring)</strong></td><td><pre class="language-javascript"><code class="lang-javascript">const usuario = { nombre: "Ane", edad: 26 };
+<table data-header-hidden data-full-width="true"><thead><tr><th width="240.55096435546875">Titulo</th><th width="236.5665283203125">Descipción</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>Antes (sin destructuring)</strong></td><td>Esto funciona, pero cuando la lista es larga o el objeto tiene muchas propiedades, puede volverse repetitivo y difícil de leer.</td><td><pre class="language-javascript"><code class="lang-javascript">const usuario = { nombre: "Ane", edad: 26 };
 const nombre = usuario.nombre;
 const edad   = usuario.edad;
-</code></pre></td></tr><tr><td><strong>Despues (con destructuring)</strong></td><td><pre class="language-javascript"><code class="lang-javascript">const { nombre, edad } = { nombre: "Ane", edad: 26 };
+</code></pre></td></tr><tr><td><strong>Despues (con destructuring)</strong></td><td>En una sola linea se accede a los valores</td><td><pre class="language-javascript"><code class="lang-javascript">const { nombre, edad } = { nombre: "Ane", edad: 26 };
 </code></pre></td></tr></tbody></table>
 
 ***
 
-### Errores comunes
+### Tipos
 
-#### Destructurar `null`/`undefined`&#x20;
+Existen **dos tipos de deconstrucción**:
 
-```js
-// const { x } = undefined; // ❌ TypeError
-const obj = undefined;
-const { x } = obj || {};
-```
+1. **Deconstrucción de Arrays**
+2. **Deconstrucción de Objetos**
 
-#### Asignar a variables YA declaradas: usa paréntesis
-
-```js
-let a;
-({ a } = { a: 42 });
-console.log(a); // 42
-```
-
-{% hint style="warning" %}
-Sin paréntesis, el intérprete trata `{ a }` como un **bloque** y no como un **patrón de asignación**.
+{% hint style="info" %}
+También podemos aplicar la deconstrucción en **parámetros de funciones**, usar **valores por defecto**, **renombrar variables** y más.
 {% endhint %}
 
-#### Re-declarar en el mismo bloque con `let/const`
-
-```js
-const { a } = { a: 1 };
-// const { a } = { a: 2 }; // ❌ Cannot redeclare variable 'a'
-```
-
-***
-
-### Destructuring con **arrays**
+### Destructuring de **arrays**
 
 #### Sintaxis
 
@@ -73,6 +53,8 @@ console.log(a, b, c); // 10 20 30
 
 #### Ignorar elementos
 
+Se pueden **ignorar valores** usando comas
+
 ```js
 const colores = ["rojo", "verde", "azul"];
 const [primero, , tercero] = colores;
@@ -81,12 +63,15 @@ console.log(primero, tercero); // "rojo" "azul"
 
 #### Valores por defecto
 
-Se usan si la posición no existe o es `undefined`.
+Se usan si la posición no existe o es `undefined`. Es decir, si el array no tiene suficientes valores, podemos asignar valores por defecto.
 
 ```js
-const datos = [42];
-const [x = 0, y = 0] = datos;
-console.log(x, y); // 42 0
+const numeros = [10];
+
+// El segundo valor no existe, entonces usamos el valor por defecto
+const [a, b = 99] = numeros;
+
+console.log(a, b); // 10 99
 ```
 
 #### Intercambiar variables en una línea
@@ -97,22 +82,52 @@ let alto = 800, ancho = 600;
 console.log(alto, ancho); // 600 800
 ```
 
-### Destructuring con **objetos**
+### Destructuring de **objetos**
+
+La deconstrucción de objetos nos permite **extraer propiedades** y asignarlas a variables fácilmente.
 
 #### Sintaxis
 
 ```js
-const persona = { nombre: "Ane", edad: 26 };
-const { nombre, edad } = persona;
-console.log(nombre, edad); // "Ane" 26
+const persona = {
+  nombre: "Ane",
+  edad: 27,
+  pais: "Bilbao"
+};
+
+// Deconstrucción de objeto
+const { nombre, edad, pais } = persona;
+
+console.log(nombre); // Ane
+console.log(edad);   // 27
+console.log(pais);   // Bilbao
+
 ```
 
-#### Cambiar el nombre de la variable (alias)
+#### Renovar propiedades
+
+Podemos asignar una propiedad a una variable con un **nombre diferente,** esto se conoce como crear un **alias**.
 
 ```js
 const user = { id: 101, nombre: "Ane" };
 const { nombre: nombreCompleto, id: usuarioId } = user;
 console.log(nombreCompleto, usuarioId); // "Ane" 101
+```
+
+#### Valores por defecto
+
+Si una propiedad no existe en el objeto, podemos darle un valor por defecto.
+
+```javascript
+const persona = {
+  nombre: "Iratxe"
+};
+
+// "edad" no existe, usamos 18 como valor por defecto
+const { nombre, edad = 18 } = persona;
+
+console.log(nombre); // Iratxe
+console.log(edad);   // 18
 ```
 
 #### Rest operator
@@ -148,6 +163,8 @@ Si algun apartado es `undefined`, considera `?.` u ofrecer **defaults (predermin
 
 ### Destructuring en **parámetros de funciones**
 
+La deconstrucción es muy útil en funciones, especialmente cuando trabajamos con objetos.
+
 #### Objetos como opciones
 
 * No importa el **orden** de los argumentos.
@@ -155,12 +172,14 @@ Si algun apartado es `undefined`, considera `?.` u ofrecer **defaults (predermin
 * Facilita la lectura.
 
 ```js
-function crearUsuario({ nombre, email, rol = "usuario" }) {
-  return { nombre, email, rol };
+function mostrarUsuario({ nombre, edad }) {
+  console.log(`Usuario: ${nombre}, Edad: ${edad}`);
 }
 
-const u = crearUsuario({ nombre: "Ane", email: "ane@ejemplo.com" });
-console.log(u); // { nombre: "Ane", email: "...", rol: "usuario" }
+const usuario = { nombre: "Ane", edad: 27 };
+
+mostrarUsuario(usuario);
+// Usuario: Ane, Edad: 27
 ```
 
 #### Arrays como parámetros
@@ -203,7 +222,44 @@ for (const [clave, valor] of Object.entries(opciones)) {
 }
 ```
 
+| Tipo                      | Sintaxis                  | Ejemplo                           |
+| ------------------------- | ------------------------- | --------------------------------- |
+| Deconstrucción de Arrays  | `[a, b] = array`          | `const [x, y] = [1, 2]`           |
+| Deconstrucción de Objetos | `{prop1, prop2} = objeto` | `const {nombre, edad} = persona`  |
+| Valores por defecto       | `prop = valor`            | `const {ciudad = "Madrid"} = obj` |
+| Renombrar propiedades     | `prop: nuevoNombre`       | `const {edad: años} = persona`    |
+| En funciones (parámetros) | `function fn({prop}) {}`  | `function saluda({nombre}) {}`    |
+
 ***
+
+### Errores comunes
+
+#### Destructurar `null`/`undefined`&#x20;
+
+```js
+// const { x } = undefined; // ❌ TypeError
+const obj = undefined;
+const { x } = obj || {};
+```
+
+#### Asignar a variables YA declaradas: usa paréntesis
+
+```js
+let a;
+({ a } = { a: 42 });
+console.log(a); // 42
+```
+
+{% hint style="warning" %}
+Sin paréntesis, el intérprete trata `{ a }` como un **bloque** y no como un **patrón de asignación**.
+{% endhint %}
+
+#### Re-declarar en el mismo bloque con `let/const`
+
+```js
+const { a } = { a: 1 };
+// const { a } = { a: 2 }; // ❌ Cannot redeclare variable 'a'
+```
 
 ### Cheat sheet
 

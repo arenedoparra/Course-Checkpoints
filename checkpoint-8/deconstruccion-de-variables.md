@@ -261,6 +261,8 @@ const { a } = { a: 1 };
 // const { a } = { a: 2 }; // ❌ Cannot redeclare variable 'a'
 ```
 
+***
+
 ### Cheat sheet
 
 * **Array**\

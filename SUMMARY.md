@@ -25,7 +25,7 @@
   * [👉 'This' Keyword](checkpoint-7/que-es-la-palabra-clave-this-en-js.md)
 * [Checkpoint 8](checkpoint-8/README.md)
   * [¿Qué tipo de bucles hay en JS?](checkpoint-8/page-1.md)
-  * [Declarar variables: Const, Let y Var](checkpoint-8/declarar-variables-const-let-y-var.md)
+  * [🆚 Declarar variables: Const, Let y Var](checkpoint-8/declarar-variables-const-let-y-var.md)
   * [🏹 Arrow function (función de flecha)](checkpoint-8/arrow-function-funcion-de-flecha.md)
   * [¿Qué es la deconstrucción de variables?](checkpoint-8/que-es-la-deconstruccion-de-variables.md)
   * [⏭️ Operadores de extensión en JS](checkpoint-8/operadores-de-extension-en-js.md)

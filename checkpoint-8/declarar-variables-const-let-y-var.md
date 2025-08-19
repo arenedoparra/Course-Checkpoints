@@ -2,7 +2,7 @@
 description: ¿Cuáles son las diferencias entre const, let y var?
 ---
 
-# Declarar variables: Const, Let y Var
+# 🆚 Declarar variables: Const, Let y Var
 
 ### Introducción
 
@@ -17,6 +17,8 @@ Usa `const` por defecto, asegurando que tu variable no cambia accidentalmente.
 Usa `let` solo cuando sepas que la variable cambiará su valor.
 
 Evita usar `var` ya que es propenso a errores y ya está en desuso.
+
+***
 
 ### 1. Var
 
@@ -85,3 +87,17 @@ console.log(y); // 20
 // z = 20; // ❌ Error: no se puede re-asignar
 console.log(z); // 10
 </code></pre></td></tr></tbody></table>
+
+***
+
+### Resumen
+
+* **Usa `const` por defecto.** Declara con `let` solo si vas a **re-asignar** el valor.
+* **Evita `var`** (es auntiguo): no respeta el bloque `{ }`, se puede re-declarar y puede producir errores sutiles por **hoisting**.
+* **Ámbito (scope):**
+  * `var` : **función**
+  * `let` y `const` : **bloque** (entre llaves `{ }`, por ejemplo en `if`, `for`, `while`…).
+* **Re-asignación:**
+  * `var` ✅ | `let` ✅ | `const` ❌ (no puedes cambiar la referencia).
+* **Re-declaración en el mismo bloque:**
+  * `var` ✅ | `let` ❌ | `const` ❌

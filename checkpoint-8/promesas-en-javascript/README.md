@@ -18,32 +18,32 @@ Antes de que existieran las promesas, el manejo de código asíncrono se hacía 
 
 {% hint style="success" %}
 **Consejo**\
-Práctica  promesas con ejemplos simples como **esperar unos segundos** o **simular una llamada a servidor** antes de usarlas en proyectos grandes.
+Prácticar promesas con ejemplos simples como **esperar unos segundos** o **simular una llamada a un servidor** antes de usarlas en proyectos grandes.
 {% endhint %}
 
 ***
 
 ### Usos
 
-* **Evitan el "Callback Hell"** (código desordenado y difícil de leer).
+* **Evitar el "Callback Hell"** (código desordenado y difícil de leer).
 * Facilitan manejar **errores**.
 * Permiten **manejar tareas asincrónicas** de forma más clara. Permiten **encadenar operaciones** asíncronas sin anidar múltiples niveles de funciones.
-* Hacen el código **más limpio y mantenible**. Hacen el código más **legible**.
+* Hacen el código **más limpio, facil de mantener y legible**.
 * Se integran perfectamente con **`async`/`await`**.
 
 #### Cómo se usa una promesa
 
 Para manejar una promesa usamos:
 
-* `.then()` → Se ejecuta cuando la promesa se **cumple**.
-* `.catch()` → Se ejecuta cuando la promesa es **rechazada**.
-* `.finally()` → Se ejecuta siempre, haya éxito o error.
+* `.then()` Se ejecuta cuando la promesa se **cumple**.
+* `.catch()` Se ejecuta cuando la promesa es **rechazada**.
+* `.finally()` Se ejecuta siempre, haya éxito o error.
 
 ***
 
 ### Estados de una promesa
 
-Una promesa **puede estar en uno de estos tres estados**:
+Una promesa **puede estar en uno de estos tres estados**
 
 * **Pendiente (pending)** : Esperando a que la operación termine.
 * **Cumplida (fulfilled):** Todo salió bien y tienes el resultado.
@@ -80,8 +80,8 @@ miPromesa
     });
 ```
 
-* **`resolve()`** → Indica que la promesa se cumplió correctamente.
-* **`reject()`** → Indica que la promesa falló.
+* **`resolve()`** Indica que la promesa se cumplió correctamente.
+* **`reject()`** Indica que la promesa falló.
 
 ***
 
@@ -107,11 +107,11 @@ miPromesa
 
 ### [Promesas con `async` y `await`](promesas-con-async-y-await.md)&#x20;
 
-**`async`/`await`** es una forma más legible de manejar promesas.
+**`async`/`await`** es una forma más legible de manejar las promesas.
 
 #### Ventajas de async/await:
 
-* Código más parecido al síncrono.
+* El código es más parecido al síncrono.
 * Más fácil de leer y depurar.
 * Sigue usando promesas por detrás.
 

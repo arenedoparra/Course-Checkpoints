@@ -1,12 +1,29 @@
-# CONDICIONALES EN PYTHON: 
+# CONDICIONALES EN PYTHON 
 
 ## ¿Qué es un condicional?
+Los condicionales son una de las estructuras fundamentales en cualquier lenguaje de programación.  
+Se utilizan para **tomar decisiones** dentro de nuestro código.  
+En pocas palabras, nos permiten ejecutar un bloque de código **solo si** se cumple una condición específica.
+
+
 Los **condicionales** son de los elementos fundamentales que hacen python dinámico, hacen que el programa  que crees pueda empezar a tomar decisiones. Estos permiten que nuestro programa tome decisiones y ejecute acciones diferentes según ciertas condiciones. Esta estructura, permite ejecutar un bloque de código u otro dependiendo de si una condición se cumple (True) o no, son tipos de respuestas de SI o NO.
 Los condicionales pueden tener direntes niveles, siguiendo una estructura de arbol, donde existen diferentes escenarios y acciones.
 
- _Si ocurre X situación, quiero que como programa, quiero que realices X tarea, pero si ocurre Y quiero que realices ortra tarea_
+ > _Si ocurre X situación, quiero que como programa, quiero que realices X tarea, pero si ocurre Y quiero que realices ortra tarea_
+
  
-## Sintaxis básica
+### Componentes básicos 
+-   **Expresión booleana**: algo que Python puede evaluar a `True` (verdadero) o `False` (falso).
+    
+-   **Palabras clave**: `if`, `elif` (else if), `else`.
+    
+-   **Bloques indentados**: el código que se ejecuta cuando la condición es verdadera.
+    
+-   **Dos puntos `:`**: indican el inicio de un bloque.
+    
+### Sintaxis
+> En Python, los bloques se definen **por sangría** (4 espacios es el estándar). No mezcles tabs y espacios.
+
 ```python
 if condición:
     # Si la condición es verdadera
@@ -15,20 +32,93 @@ else:
 elif otra_condición:
     # Si la primera condición no se cumple pero esta sí
 ```
+### Diagrama visual ( `if / elif / else`)
+```mermaid
+    A[Inicio] --> B {¿condición 1?}
+    B -- Sí --> C [Ejecutar bloque if]
+    B -- No --> D {¿condición 2?}
+    D -- Sí --> E [Ejecutar bloque elif]
+    D -- No --> F [Ejecutar bloque else]
+    C --> G[Fin]
+    E --> G
+    F --> G
+```
+### Qué es una **condición**?
+Una **condición** es cualquier expresión que Python pueda reducir a `True` o `False`.  
+-   **Comparaciones**: `x > 10`, `edad == 18`, `precio <= 100`
+-   **Operadores lógicos**: `x > 0 and y > 0`, `is_admin or is_staff`
+-   **Pertenencia**: `'py' in 'python'`, `item in lista`
+-   **Identidad**: `x is None`, `a is b`
+-   **Verdad implícita (truthiness)**: `if lista:` (True si **no** está vacía)
 
 ### Ejemplo
+    ``` python
+    edad = 30
+    if edad < 25:
+        print("Lo siento, necesitas tener 25 años")
+    else:
+        print("Adceptado, tienes{edad} años")
+    elif temperatura < 100:
+        print("Lo siento {edad} es muy viejo") 
+    #Ya que en elif hay dos condiciones, esta deberá ir en medio, porque primero comprobará estas dos y si son falsas ejecutará una tercera.
+    ```
+### Operadores mas usados de comparación
+| Operador | Significado   | Ejemplo  | Resultado |
+| -------- | ------------- | -------- | --------- |
+| `==`     | Igualdad      | `3 == 3` | `True`    |
+| `!=`     | Distinto      | `3 != 4` | `True`    |
+| `>`      | Mayor que     | `5 > 2`  | `True`    |
+| `<`      | Menor que     | `2 < 5`  | `True`    |
+| `>=`     | Mayor o igual | `5 >= 5` | `True`    |
+| `<=`     | Menor o igual | `3 <= 2` | `False`   |
 
-```python
-edad = 30
 
-if edad < 25:
-    print("Lo siento, necesitas tener 25 años")
-else:
-    print("Adceptado, tienes{edad} años")
-elif temperatura < 100:
-    print("Lo siento {edad} es muy viejo") #Ya que en elif hay dos condiciones, esta deberá ir en medio, porque primero comprobará estas dos y si son falsas ejecutará una tercera.
+### Errores comunes
+1.  **Confundir `=` con `==`**
+    
+    -   `=` asigna, `==` compara.
+        
+    -   En Python **no puedes** usar `=` dentro de una condición.
+        
+2.  **Usar `is` en lugar de `==` para valores**
+    
+    ```python
+    a = 500
+    b = 500
+    print(a == b)  # True (mismo valor)
+    print(a is b)  # False en general (objetos distintos)
+    ```
+3.  **Olvidar el `:`** al final de `if/elif/else`.
+    
+4.  **Mala indentación** (mezclar tabs/espacios).
+    -   Configura tu editor a **4 espacios**.
+        
+5.  **Comparar floats con `==`** → usa `math.isclose`.
+    
+6.  **Usar `and`/`or` con bits (`&`, `|`)** por error.
+    
+    -   Para lógica, usa `and`, `or`, `not`.
+        
+7.  **Escribir `if x == True:`**
+    
+    -   Prefiere `if x:` o `if not x:`.
+        
+8.  **No considerar el orden de `elif`**
 
-```
+    -   Pon primero las condiciones **más restrictivas** o **más probables**.
+
+### Cheat sheet
+-   `if / elif / else` decisiones con múltiples casos.
+-   Usa **4 espacios** para indentación.
+-   `and` / `or` / `not` lógica booleana.
+-   `in` / `not in` pertenencia en cadenas, listas, etc.
+-   `is` / `is not` identidad de objetos (usa `is None`).
+-   `0 < x < 10` comparaciones encadenadas.
+-   Ternario: `x if cond else y`.
+-   Flotantes: `math.isclose(a, b)`
+
+
+
 
 # BUCLES EN PYTHON (_LOOPS_)
 ## ¿Qué es un Bucle?

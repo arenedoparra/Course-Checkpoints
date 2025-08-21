@@ -309,33 +309,28 @@ pares = [x for x in range(10) if x % 2 == 0]
 - Para grandes cantidades de datos, considera expresiones generadoras y funciones como `sum`, `any`, `all`.
 - Documenta con un comentario si la comprensión hace algo no obvio.
 
-# Argumentos en Python
+# ARGUMENTOS EN PYTHON
+## ¿Qué es un argumento en Python?
+Los **argumentos** son valores que enviamos a una función para que los utilice internamente. Es decir, un **argumento** es el valor (dato) que le pasas a una función cuando la llamas.  
+El **parámetro** es el nombre que aparece en la definición de la función.  
 
-Los **argumentos** son valores que enviamos a una función para que los utilice internamente.
-
-## Ejemplo
-
+### Ejemplo
 ```python
-def nombre_completo(nombre, apellido):
-    print(f"Hola, {nombre}{apellido}!")
+def saluda(nombre):      # `nombre` es un parámetro
+    print("Hola", nombre)
 
-nombre_completo("Ane" , 'Renedo')
+saluda("Ane")           # "Ane" es un argumento
 ```
-
-> Salida: `Hola, Ane Renedo`
-
 ## Tipos de argumentos
+Python permite varias formas de pasar argumentos. Cada una resuelve necesidades distintas:
+1.  **Posicionales** : el orden importa, se pasan en orden.
+2.  **Nombrados (keyword arguments)**: se pasan con nombre  `clave=valor`, el orden no importa.
+3.  **Con valor por defecto (default arguments)**: tienen un valor si no se indica otro, parámetros opcionales con valor por defecto.
+4.  **Arbitrarios posicionales (`*args`)** — aceptar N argumentos posicionales.
+5.  **Arbitrarios con nombre (`**kwargs`)** — aceptar N argumentos nombrados.
+6.  **Keyword-only** — parámetros que sólo pueden recibirse por nombre (forzados por `*`).
+7.  **Positional-only** — parámetros que sólo pueden recibirse por posición (señalados con `/`, Python ≥3.8).
 
-- **Posicionales**: se pasan en orden.
-- **Nombrados**: se pasan con nombre.
-- **Con valor por defecto**: tienen un valor si no se indica otro.
-
-```python
-def saludar(nombre="estudiante"):
-    print(f"Hola, {nombre}!")
-```
-
----
 
 # FUNCIONES LAMBDA
 
@@ -529,3 +524,4 @@ Porque asegura que ejecutas el `pip` asociado con ese intérprete de Python (evi
 
 **¿Qué es `pipx`?**  
 Herramienta para instalar aplicaciones Python (CLI) globalmente en entornos aislados (ideal para herramientas como `cookiecutter`, `pre-commit`, etc.).
+x

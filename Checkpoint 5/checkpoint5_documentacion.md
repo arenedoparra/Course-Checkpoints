@@ -369,53 +369,163 @@ saludo(nombre_completo('Ane', 'Renedo'))
 
 ## ¿Qué es un paquete pip?
 
-**`pip`** es el sistema de gestión de paquetes de Python. Te permite instalar bibliotecas externas para apliar las funcionalidades de tu programa. Estos paquetes externos se importan de la _PyPi Store_.
-Para poder usar estos paquetes, primero tenemos que instalar pip en nuestro sistema.
+**`pip`** es el gestor de paquetes oficial de Python. Te permite instalar bibliotecas externas para apliar las funcionalidades de tu programa. Estos paquetes externos se importan de la _PyPi Store_.
+Para poder usar estos paquetes, primero tenemos que instalar pip en nuestro sistema. Es decir, es una herramienta que instala, actualiza y quita **paquetes** (bibliotecas) que se publican en repositorios como **PyPI** (Python Package Index).
+    
+-   Un **paquete** (o _package_) es una colección distribuible de código Python (módulos, datos, metadatos) que puedes instalar con `pip install nombre-paquete`.
+    
+-   **Ejemplo práctico:** `python -m pip install requests` descarga e instala la biblioteca `requests` en tu entorno Python.
 
-```
+```python
 install -> get.pip.py -> guardarlo en el ordenador -> terminal -> ejecutarlo como un directorio normal de python.
 Para comprobar que stá instalado: pip -- version
 ```
+## ¿Por qué existe pip? y ¿Para qué se utiliza?
+Cuando programas, casi nunca lo haces **solo**: reutilizas código hecho por otros (por ejemplo, para peticiones HTTP, trabajar con fechas, bases de datos, testing). `pip` facilita:
+-   **Instalar** librerías publicadas (desde PyPI, GitHub, directorios locales).
+-   **Desinstalar** librerías.
+-   **Actualizar** a versiones más nuevas.
+-   **Gestionar** dependencias (las librerías que requiere otra librería).
+-   Integrarse con **entornos virtuales** (`venv`) para no “ensuciar” la instalación global de Python.
+
+## Conceptos clavee
+-   **PyPI**: repositorio central donde se publican la mayoría de paquetes Python.
+-   **Paquete / distribución**: unidad que pip instala. Viene como:
+    -   **wheel** (`.whl`) — formato binario empaquetado (instalación rápida).
+    -   **sdist** (`.tar.gz` o `.zip`) — distribución fuente (puede compilar extensiones).
+-   **Entorno virtual**: entorno aislado (ej. creado con `python -m venv venv`) donde instalas tus paquetes sin afectar al sistema.
+-   **requirements.txt**: archivo que lista dependencias (y versiones) para replicar entornos.
+-   **pyproject.toml / setup.py**: archivos que describen cómo construir/instalar un paquete.
+
 
 ### PyPi (_Cheeseshop_)
 
 **`PyPi`** es una base de datos de todos los modulos que puedes importar. Del inglés _Python Package Index_. Dentro, encontramos muchas librerias de terceros. Para importarlas o conectarlas con nuestro programa, debreremos usar pip.
 
-## Comandos
+## Cheat sheet o comandos
+``` bash
+# Instalar un paquete
+python pip install nombre-del-paquete
 
-- Instalar un paquete:
+# Instalar con versión concreta
+python pip install "requests==2.28.1"
 
-```
-pip install nombre-del-paquete
-```
-
-- Ver paquetes instalados:
-
-```
-pip list
-```
-
-- Actualizar un paquete:
-
-```
+# Actualizar un paquete
+python -m pip install --upgrade requests
 pip install --update nombre-del-paquete
-```
 
-- Desinstalar un paquete:
-
-```
+# Desinstalar
 pip uninstall nombre-del-paquete
+
+# Instalar desde un archivo requirements.txt
+python -m pip install -r requirements.txt
+
+# Instalar desde GitHub (branch/tag)
+python -m pip install git+https://github.com/usuario/repositorio.git@main
+
+# Instalar local (carpeta con setup.py o pyproject.toml)
+python -m pip install ./mi_proyecto
+
+# Descargar paquetes sin instalar
+python -m pip download requests
+
+# Mostrar información
+python -m pip show requests
+
+# Listar paquetes instalados
+python -m pip list
+
+# Borrar cache
+python -m pip cache purge
 ```
 
 ## Ejemplo
-
 ```
 terminal -> pip install numpy
 ```
-
 > Esto instalará la biblioteca `numpy`, usada para procesar numeros, records y objetos. Luego abrá que abrir python3 e importarlo.
-
 ```
 phython3
 import numpy
 ```
+
+
+## Entornos virtuales
+
+-   Evitan conflictos entre proyectos (cada proyecto tiene sus propias dependencias).
+    
+-   No necesitas permisos de administrador.
+    
+-   Facilitan desplegar/compartir proyectos con `requirements.txt`.
+``` bash
+python3 -m venv venv
+source venv/bin/activate        # ahora el prompt cambia (venv)
+python -m pip install -r requirements.txt
+deactivate                      # salir del entorno
+````
+
+> si `pip` no se encuentra, siempre puedes usar `python -m pip` (usa el pip asociado con ese Python).
+```bash 
+## Instalar desde Git, archivos locales o URLs
+# Desde GitHub (instala la rama main)
+python -m pip install git+https://github.com/user/repo.git@main
+
+# Desde un archivo wheel local
+python -m pip install ./dist/mi_paquete-0.1-py3-none-any.whl
+
+# Desde una URL directa a un .whl o .tar.gz
+python -m pip install https://example.com/packages/mi_paquete.whl
+```
+
+## Instalaciones editables y desarrollo
+
+`pip install -e .` instala el paquete en modo _editable_. Útil mientras desarrollas: los cambios en tu código se reflejan sin reinstalar.
+
+Necesitas un `setup.py` o `pyproject.toml` bien configurado para que funcione.
+
+## Errores comunes 
+
+-   **`pip: command not found`**  
+    Usa `python -m pip ...` o instala pip (la mayoría de Python modernos ya incluyen pip). En sistemas gestionados (macOS/Ubuntu), usa la instalación del sistema o `python -m ensurepip --upgrade`.
+    
+-   **Permisos denegados al instalar globalmente**  
+    No uses `sudo pip install ...` en la mayoría de los casos. Mejor: usa `venv` o `--user`:
+    ```bash
+    python -m pip install --user paquete
+    ```
+-   **Compilación fallida (extensiones en C)**  
+    Instala dependencias del sistema (por ejemplo, `build-essential`, `python3-dev` en Debian/Ubuntu) o usa una wheel ya construida.
+    
+-   **Version conflict / dependency resolver**  
+    `pip` puede reportar conflictos entre versiones. Solución: fijar versiones, usar `pip-compile` o herramientas de administración de dependencias (Poetry).
+    
+-   **Cache corrupto / problemas de permisos con la caché de pip**  
+    `python -m pip cache purge` o corregir permisos de `~/.cache/pip` con `chown`.
+
+
+## Buenas prácticas
+
+1.  **Siempre usa entornos virtuales** (`venv` o `virtualenv`).
+    
+2.  **Nunca uses `sudo pip install`** salvo caso extremo en sistemas gestionados.
+    
+3.  **Pinnea versiones** en producción (`requirements.txt`).
+    
+4.  **Usa wheels** cuando estén disponibles para evitar compilaciones largas.
+    
+5.  **Automatiza** la instalación en CI: `python -m pip install -r requirements.txt`.
+    
+6.  **Revisa dependencias de sistema** antes de instalar paquetes que compilan extensiones.
+    
+7.  **Actualiza pip**: `python -m pip install --upgrade pip setuptools wheel`.
+
+## Preguntas frecuentes
+
+**¿Necesito usar pip siempre?**  
+Si usas Python, casi seguro necesitarás `pip` para instalar bibliotecas externas. En algunos entornos (conda) se usan otras herramientas, pero pip sigue siendo estándar para PyPI.
+
+**¿Por qué prefiero `python -m pip install` sobre `pip install`?**  
+Porque asegura que ejecutas el `pip` asociado con ese intérprete de Python (evita confusión entre múltiples Pythons).
+
+**¿Qué es `pipx`?**  
+Herramienta para instalar aplicaciones Python (CLI) globalmente en entornos aislados (ideal para herramientas como `cookiecutter`, `pre-commit`, etc.).

@@ -117,46 +117,120 @@ Una **condición** es cualquier expresión que Python pueda reducir a `True` o `
 -   Ternario: `x if cond else y`.
 -   Flotantes: `math.isclose(a, b)`
 
-
+### Buenas prácticas
+-   Mantén las condiciones **cortas y legibles**.
+-   Extrae condiciones complicadas a funciones con nombres claros:
+-   Prefiere **guard clauses** a grandes estructuras anidadas.
+-   Ordena `elif` de lo **más específico** a lo **más general**.
+-   Escribe **tests** para condiciones críticas.
 
 
 # BUCLES EN PYTHON (_LOOPS_)
-## ¿Qué es un Bucle?
-Los **bucles** son herramientas de codigo que nos permiten repetir instrucciones multiples veces sin tener que escribir el mismo codigo. Hay dos tipos de _loops_ en python:
+## ¿Cuáles son los diferentes tipos de bucles en Python? ¿Por qué son útiles?
+Un **bucle** es una estructura de control que permite **ejecutar repetidamente** un bloque de código mientras se cumpla una condición o hasta agotar una secuencia. Los bucles son esenciales cuando queremos:
+-   Procesar todos los elementos de una lista, archivo o colección.
+-   Repetir una acción hasta que ocurra cierta condición (ej.: reintentos de conexión).
+-   Generar estructuras (tablas, matrices) o hacer cálculos acumulativos (sumas, promedios).
+-   Automatizar tareas repetitivas (renombrar archivos, enviar correos, validar datos).
+
+**Ejemplo:** queremos imprimir los números del 1 al 5 sin escribir 5 `print` separados. Un bucle nos permite hacerlo con unas pocas líneas.
+Resumiendo, Los **bucles** son herramientas de codigo que nos permiten repetir instrucciones multiples veces sin tener que escribir el mismo codigo.
+ Hay dos tipos de _loops_ en python:
 - For...In
 - While
 
 Ambos se pueden usar para iterar colecciones, un rango de numeros, listas etc. Ambos bucles son útiles para automatizar tareas como recorrer listas, repetir cálculos, etc.
 
+### Tipos de bucles
 
-## Diferentes tipos de bucles
-### Bucle `for...in`
-Repite una acción sobre cada elemento de una secuencia (lista, string, rango...). Por ejemplo; si tenemos una máquina con bolas de juguete dentro, este tipo de bucle, sería la capacidad de darle vueltas a la rueda, tantas veces como bolas de juguete haya. Tenemos un principio y un final bien definidos.
+#### 1) `for...in` — el bucle más usado
+`for` itera sobre _iterables_ (listas, tuplas, strings, diccionarios, rangos, archivos, generadores, etc.). Es el estándar para recorrer colecciones. Por ejemplo; si tenemos una máquina con bolas de juguete dentro, este tipo de bucle, sería la capacidad de darle vueltas a la rueda, tantas veces como bolas de juguete haya. Tenemos un principio y un final bien definidos.
+
+**Sintaxis**
+   ```python
+for elemento in iterable:
+    # hacer algo con elemento
+```
 
 **Ejemplo**
 ```python
+
+# recorrer lista
+nombres = ["Ana", "Luis", "María"]
+for nombre in nombres:
+    print(nombre)
+# recorrer string
+for letra in "Python":
+    print(letra)
+# usar range para contar
 for num in range(6):
     print(num)
 ```
-**Salida**
-> 0  
-> 1  
-> 2  
-> 3  
-> 4  
-> 5
 
-### Bucle `while`
-Repite una acción **mientras** se cumpla una condición. No es tan inteligente como el for..in loop. este, continuará ejecutandose cuando llega al final hasta entrar en un bucle infinito si no se configura correctamente. Es por ello que a un _While_ loop hay que decirle cuando parar y a esto se le llama _centinel value_.
+#### 2) `while` — repetir mientras una condición sea verdadera
 
+Repite una acción **mientras** se cumpla una condición. No es tan inteligente como el for..in loop. este, continuará ejecutandose cuando llega al final hasta entrar en un bucle infinito si no se configura correctamente. Es por ello que a un _While_ loop hay que decirle cuando parar y a esto se le llama _centinel value_. `while` repite un bloque **mientras** la condición sea `True`. Útil cuando no sabes de antemano cuántas veces repetirás (ej.: espera por un evento).
+
+**Sintaxis**
+```python
+while condicion:
+    # cuerpo
+```
 **Ejemplo**
 ```python
 nums=list(range(1,100))
  while len(nums) > 0:  
     print(nums.pop())
 ```
+> **Cuidaso:** `while` puede producir **bucles infinitos** si la condición nunca se hace `False`.
 
-# Listas por Comprensión
+#### 3) Bucles anidados (nested loops)
+
+Un bucle dentro de otro. Útil para matrices, combinaciones, tablas de multiplicar.
+```python
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} x {j} = {i*j}")
+```
+**Cuidado con lacomplejidad** ya que anidar mucho puede crecer la cantidad de operaciones.
+
+
+### Errores comunes
+
+1.  **Bucle infinito (`while True` sin `break`):**
+    
+    -   Siempre asegúrate de que la condición pueda volverse `False` o hay un `break`.
+        
+2.  **Modificar lista mientras la iteras:**
+   ```python 
+   lista = [1,2,3,4]
+for x in lista:
+    if x % 2 == 0:
+        lista.remove(x)  # peligroso: puede saltarse elementos
+```
+    -   **Solución:** itera sobre una copia (`for x in lista[:]`) o construye una nueva lista (comprensión).
+        
+3.  **Off-by-one (rango incorrecto):**
+    
+    -   `range(1, 6)` incluye 1..5; recuerda que `stop` es exclusivo.
+        
+4.  **Dependencia del valor de la variable de bucle fuera del bucle:**
+    
+    -   En Python la variable del bucle queda definida después del bucle (a diferencia de otros lenguajes), cuidado con reusar nombres.
+        
+5.  **Usar `is` para comparar valores (en vez de `==`):**
+    
+    -   `is` comprueba identidad de objeto, no igualdad de valor. Para comparar números o strings usa `==`.
+        
+6.  **Confundir `for-else`:**
+    
+    -   `else` se ejecuta solo si no hubo `break`. Esto puede confundir a quien lea tu código; documenta o evita si no añade claridad.
+
+
+#
+## ¿Qué es una lista por comprensión en Python?
+
+
 Una **lista por comprensión** es una forma rápida de construir nuevas listas aplicando operaciones o condiciones sobre un iterable. Se pueden configurar una serie de for..in loops para funcionar en unsa sola linea y generar listas a partir de esas lineas de codigo, es un set de bubles.
 
 ### Sintaxis

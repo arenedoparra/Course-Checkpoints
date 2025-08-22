@@ -53,9 +53,9 @@ Una **condición** es cualquier expresión que Python pueda reducir a `True` o `
 
 - **Comparaciones**: `x > 10`, `edad == 18`, `precio <= 100`
 - **Operadores lógicos**: `x > 0 and y > 0`, `is_admin or is_staff`
-- **Pertenencia**: `'py' in 'python'`, `item in lista`
+- **Pertenencia**: `'py' in 'python'`, `item in list`
 - **Identidad**: `x is None`, `a is b`
-- **Verdad implícita (truthiness)**: `if lista:` (True si **no** está vacía)
+- **Verdad implícita (truthiness)**: `if list:` (True si **no** está vacía)
 
 ### Ejemplo
 
@@ -157,7 +157,6 @@ Resumiendo, Los **bucles** son herramientas de codigo que nos permiten repetir i
 Ambos se pueden usar para iterar colecciones, un rango de numeros, listas etc. Ambos bucles son útiles para automatizar tareas como recorrer listas, repetir cálculos, etc.
 
 ### Tipos de bucles
-
 #### 1) `for...in` — el bucle más usado
 
 `for` itera sobre _iterables_ (listas, tuplas, strings, diccionarios, rangos, archivos, generadores, etc.). Es el estándar para recorrer colecciones. Por ejemplo; si tenemos una máquina con bolas de juguete dentro, este tipo de bucle, sería la capacidad de darle vueltas a la rueda, tantas veces como bolas de juguete haya. Tenemos un principio y un final bien definidos.
@@ -228,13 +227,12 @@ for i in range(1, 4):
 
    ```python
    lista = [1,2,3,4]
-for x in lista:
+    for x in lista:
     if x % 2 == 0:
         lista.remove(x)  # peligroso: puede saltarse elementos
-```
+    ```
+     -   **Solución:** itera sobre una copia (`for x in lista[:]`) o construye una nueva lista (comprensión).
 
-    -   **Solución:** itera sobre una copia (`for x in lista[:]`) o construye una nueva lista (comprensión).
-        
 3.  **Off-by-one (rango incorrecto):**
 
     -   `range(1, 6)` incluye 1..5; recuerda que `stop` es exclusivo.

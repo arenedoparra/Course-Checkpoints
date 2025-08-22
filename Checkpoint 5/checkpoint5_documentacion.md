@@ -321,6 +321,17 @@ def saluda(nombre):      # `nombre` es un parámetro
 
 saluda("Ane")           # "Ane" es un argumento
 ```
+
+## Forma en la que Python pasa los argumentos
+
+-   Python **no** usa “paso por valor” o “paso por referencia” exactamente como otros lenguajes; usa **paso por objeto-por-referencia** (a veces llamado _pass-by-assignment_):
+    
+    -   La **referencia** al objeto se pasa a la función.
+        
+    -   Si el objeto es **mutable** (lista, dict, objeto), la función puede modificarlo en sitio.
+        
+    -   Si el objeto es **inmutable** (int, str, tuple), la función no puede cambiar el objeto original — reasignaciones crean nuevos objetos.
+    
 ## Tipos de argumentos
 Python permite varias formas de pasar argumentos. Cada una resuelve necesidades distintas:
 1.  **Posicionales** : el orden importa, se pasan en orden.
@@ -330,6 +341,69 @@ Python permite varias formas de pasar argumentos. Cada una resuelve necesidades 
 5.  **Arbitrarios con nombre (`**kwargs`)** — aceptar N argumentos nombrados.
 6.  **Keyword-only** — parámetros que sólo pueden recibirse por nombre (forzados por `*`).
 7.  **Positional-only** — parámetros que sólo pueden recibirse por posición (señalados con `/`, Python ≥3.8).
+
+### **Posicionales** 
+```python
+def suma(a, b):
+    return a + b
+
+print(suma(2, 3))  # 5  (2 → a, 3 → b)
+```
+    -   Si cambias el orden `suma(3, 2)` obtendrás `5` también, pero con roles invertidos.
+   
+### **Nombrados (keyword arguments)** 
+````python
+def presentarse(nombre, edad):
+    print(f"{nombre} tiene {edad} años")
+
+presentarse(edad=27, nombre="Ane")  # orden no importa
+````
+    
+### **Con valor por defecto (default arguments)** 
+``` python
+def saludar(nombre, saludo="Hola"):
+    print(f"{saludo}, {nombre}")
+
+saludar("Ane")              # usa "Hola"
+saludar("Ane", saludo="¡Hey")  # usa "¡Hey"
+```
+
+### **Arbitrarios posicionales (`*args`)** 
+-   `args` es una tupla dentro de la función.
+````python
+def suma_todos(*args):
+    return sum(args)
+
+print(suma_todos(1, 2, 3, 4))  # 10
+````    
+### **Arbitrarios con nombre (`**kwargs`)** 
+-   `kwargs` es un diccionario `{clave: valor}`.
+``` python
+def mostrar_info(**kwargs):
+    for clave, valor in kwargs.items():
+        print(clave, "=", valor)
+
+mostrar_info(nombre="Ane", ciudad="Lima")
+```
+    
+### **Keyword-only** 
+-   El `*` en la firma hace que los parámetros a la derecha sean **keyword-only**.
+``` python
+def ejemplo(a, b, *, opcional=0):
+    return a + b + opcional
+
+ejemplo(1, 2, opcional=3)  # correcto
+# ejemplo(1, 2, 3)         # ERROR: opcional debe ir por nombre
+```    
+### **Positional-only**
+-   El `/` indica que todo a su izquierda solo puede pasarse por posición.
+``` python
+def dividir(x, y, /, precision=2):
+    return round(x / y, precision)
+
+dividir(10, 3)         # correcto
+# dividir(x=10, y=3)  # ERROR: x e y son positional-only
+```
 
 
 # FUNCIONES LAMBDA

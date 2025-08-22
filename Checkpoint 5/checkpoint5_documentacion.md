@@ -331,7 +331,7 @@ saluda("Ane")           # "Ane" es un argumento
     -   Si el objeto es **mutable** (lista, dict, objeto), la función puede modificarlo en sitio.
         
     -   Si el objeto es **inmutable** (int, str, tuple), la función no puede cambiar el objeto original — reasignaciones crean nuevos objetos.
-    
+
 ## Tipos de argumentos
 Python permite varias formas de pasar argumentos. Cada una resuelve necesidades distintas:
 1.  **Posicionales** : el orden importa, se pasan en orden.
@@ -404,6 +404,46 @@ def dividir(x, y, /, precision=2):
 dividir(10, 3)         # correcto
 # dividir(x=10, y=3)  # ERROR: x e y son positional-only
 ```
+## Cheat sheet 
+``` python
+# Posicional
+f(1, 2)
+
+# Nombrado
+f(x=1, y=2)
+
+# Default
+def f(x, y=10): ...
+
+# *args
+def f(*args): print(args)   # args es tupla
+
+# **kwargs
+def f(**kwargs): print(kwargs)  # kwargs es dict
+
+# Forzar keyword-only
+def f(a, *, b=2): ...
+
+# Positional-only (Python 3.8+)
+def f(a, b, /, c): ...
+
+# Desempaquetado al llamar
+f(*[1,2,3])
+f(**{'a':1, 'b':2})
+```
+## Buenas prácticas
+
+-   Usa nombres de parámetros claros: `def calcular_area(base, altura):` en vez de `def f(a, b):`.
+    
+-   Prefiere **keyword arguments** en llamadas largas para mejorar legibilidad.
+    
+-   Evita valores por defecto mutables; usa `None` como sentinel.
+    
+-   Usa `*` para forzar keyword-only si deseas mayor claridad: `def crear_usuario(nombre, *, activo=True):`.
+    
+-   Documenta la función con docstring explicando qué argumentos recibe y qué tipo/valores espera.
+    
+-   Usa `inspect.signature` cuando crees APIs que trabajen con funciones ajenas.
 
 
 # FUNCIONES LAMBDA

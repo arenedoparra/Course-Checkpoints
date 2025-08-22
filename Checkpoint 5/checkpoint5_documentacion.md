@@ -450,11 +450,33 @@ f(**{'a':1, 'b':2})
 
 ## ¿Qué es una función Lambda en Python?
 
-Es una herramienta que nos permite empaquetar una función en general una funcion más pequeña y luego introducirla en otras funciones. Con ella, podemos unir un comportamiento, un proceso. SOn muy similares a una variable, moviles y faciles de usar.
+Una **función lambda** en Python es una función pequeña y **anónima** que se define con la palabra clave `lambda`. Solo puede contener **una expresión** y devuelve automáticamente el valor de esa expresión. Se usa para funciones simples y rápidas, especialmente cuando quieres pasar una función como argumento a otra (por ejemplo: `map`, `filter`, `sorted`, callbacks).
 
-    Una **lambda** nos permite empaquetar rápida y facilmente una funcionalidad, almacenarla en una variable y luego, inrtoducir ese valor, ese preceso, en otras funcioenes y en otras partes del programa. Es una forma rápida de definir funciones pequeñas en una sola línea.
+Es decir, es una herramienta que nos permite empaquetar una función en general una funcion más pequeña y luego introducirla en otras funciones. Con ella, podemos unir un comportamiento, un proceso. SOn muy similares a una variable, moviles y faciles de usar.
+
+  >  Una **lambda** nos permite empaquetar rápida y facilmente una funcionalidad, almacenarla en una variable y luego, inrtoducir ese valor, ese preceso, en otras funcioenes y en otras partes del programa. Es una forma rápida de definir funciones pequeñas en una sola línea.
+
+## Porque exiten
+Imagina que necesitas una función **rápida** para usar una sola vez (por ejemplo, decirle a `sorted` _cómo_ comparar elementos). Las lambdas son atajos para funciones simples: menos líneas y código más directo cuando la funcionalidad es mínima. En vez de escribir:
+
+````python
+def f(x):
+    return x[1]
+````
+puedes escribir:
+
+``` python
+key = lambda x: x[1]
+```
 
 ## Sintaxis
+-   **Forma:** `lambda parámetros: expresión`
+-   **Siempre retorna** el resultado de la `expresión` (no necesitas `return`).
+-   **La expresión** puede usar operadores, llamadas a otras funciones, expresiones condicionales (`a if cond else b`), etc.
+-   **No puede contener** sentencias (por ejemplo: `if ...:`, `for`, `return`, `try/except`, `assignments`).
+-   Pueden aceptar `*args` y `**kwargs`.
+-   Pueden ser asignadas a una variable (pero entonces dejan de ser _anónimas_ por conveniencia).
+-   Tienen **alcance léxico** (pueden cerrar sobre variables externas — _closures_).
 
 ```python
 lambda argumentos: expresión
@@ -471,8 +493,29 @@ saludo(nombre_completo('Ane', 'Renedo'))
 # Salida: Hola Ane Renedo
 
 ```
+## Limitaciones y buenas prácticas
 
----
+### Limitaciones
+
+-   Solo **una expresión**: no puedes poner `if` (como sentencia), bucles, asignaciones, `return`, `try/except`, etc.
+    
+-   No aceptan **docstrings**, por lo que la documentación es menos directa.
+    
+-   Si abusas de lambdas, el código queda poco legible.
+    
+-   Las trazas de pila (`tracebacks`) muestran que es una función sin nombre (a veces confuso).
+    
+
+### Buenas prácticas
+
+-   Evitar lambdas complejas (más de una operación clara).
+    
+-   Si la función se repite o necesita pruebas, crea una función con `def` y un nombre descriptivo.
+    
+-   Para pequeñas transformaciones inline (como `key=` o `map`/`filter`) las lambdas son perfectas.
+    
+-   Si necesitas clarificar la intención, asigna la lambda a una variable con nombre: `key_age = lambda p: p[1]` en lugar de `key=lambda p: p[1]`.
+
 
 # pip: Instalación de paquetes en Python
 
